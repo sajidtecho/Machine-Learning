@@ -7,32 +7,34 @@ This repo contains everything I’m using to learn ML and AI — from theory and
 
 To become job-ready in Machine Learning and AI by building a strong foundation, completing practical projects, and mastering key tools and frameworks.
 
-🗂️ Repository Structure
-📁 machine-learning-roadmap/
-├── 📘 01_foundations/
-│   ├── python_basics.ipynb
-│   ├── numpy_pandas_visualization.ipynb
-│   ├── statistics_linear_algebra_notes.md
-│
-├── 📗 02_machine_learning/
-│   ├── linear_regression.ipynb
-│   ├── classification_models.ipynb
-│   ├── clustering_pca.ipynb
-│   └── ml_projects/
-│       ├── student_score_predictor.ipynb
-│       ├── spam_classifier.ipynb
-│       └── customer_segmentation.ipynb
-│
-├── 📙 03_deep_learning/
-│   ├── neural_networks_basics.ipynb
-│   ├── cnn_image_classifier.ipynb
-│   ├── lstm_sentiment_analysis.ipynb
-│
-├── 📒 04_applied_ai/
-│   ├── nlp_chatbot.ipynb
-│   ├── computer_vision_app.ipynb
-│   ├── model_deployment_fastapi.ipynb
-│
+## 📂 Repository Structure
+
+📁 **machine-learning-roadmap/**  
+│  
+├── 📘 **01_foundations/**  
+│   ├── python_basics.ipynb  
+│   ├── numpy_pandas_visualization.ipynb  
+│   └── statistics_linear_algebra_notes.md  
+│  
+├── 📗 **02_machine_learning/**  
+│   ├── linear_regression.ipynb  
+│   ├── classification_models.ipynb  
+│   ├── clustering_pca.ipynb  
+│   └── 📁 **ml_projects/**  
+│       ├── student_score_predictor.ipynb  
+│       ├── spam_classifier.ipynb  
+│       └── customer_segmentation.ipynb  
+│  
+├── 📙 **03_deep_learning/**  
+│   ├── neural_networks_basics.ipynb  
+│   ├── cnn_image_classifier.ipynb  
+│   └── lstm_sentiment_analysis.ipynb  
+│  
+├── 📒 **04_applied_ai/**  
+│   ├── nlp_chatbot.ipynb  
+│   ├── computer_vision_app.ipynb  
+│   └── model_deployment_fastapi.ipynb  
+│  
 └── README.md
 
 🧩 Learning Path
