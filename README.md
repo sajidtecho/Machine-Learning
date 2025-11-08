@@ -97,12 +97,6 @@ streamlit
 
 🚀 How to Use
 
-Clone the repository
-
-git clone https://github.com/<your-username>/machine-learning-roadmap.git
-cd machine-learning-roadmap
-
-
 Create a virtual environment
 
 python -m venv .venv
