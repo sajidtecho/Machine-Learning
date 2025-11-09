@@ -1,0 +1,109 @@
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Progress } from '@/components/ui/progress';
+import { motion } from 'framer-motion';
+
+export default function MLOpsTracker() {
+  const phases = [
+    {
+      name: 'Phase 1: Fundamentals',
+      months: 'Month 1–2',
+      goals: [
+        'Python for ML Ops (logging, argparse, configparser)',
+        'Git & GitHub Basics',
+        'Linux & Shell Scripting',
+        'Machine Learning Refresher',
+        'Mini-Project: Train and save a simple ML model'
+      ]
+    },
+    {
+      name: 'Phase 2: DevOps Core',
+      months: 'Month 3–4',
+      goals: [
+        'Learn Docker and Kubernetes',
+        'Implement CI/CD with GitHub Actions or Jenkins',
+        'Containerize and deploy ML model'
+      ]
+    },
+    {
+      name: 'Phase 3: Model Tracking & Experimentation',
+      months: 'Month 5–6',
+      goals: [
+        'Use MLflow or Weights & Biases',
+        'Implement DVC for data versioning',
+        'Mini-project: MLflow tracking + DVC'
+      ]
+    },
+    {
+      name: 'Phase 4: Model Deployment',
+      months: 'Month 7–8',
+      goals: [
+        'Create FastAPI/Flask API for model',
+        'Deploy using Docker on AWS/GCP/Azure',
+        'Set up monitoring (Prometheus, Grafana, EvidentlyAI)'
+      ]
+    },
+    {
+      name: 'Phase 5: Pipelines & Automation',
+      months: 'Month 9–11',
+      goals: [
+        'Learn Airflow/Prefect/Kubeflow',
+        'Use Feature Store (Feast)',
+        'Build end-to-end MLOps pipeline'
+      ]
+    },
+    {
+      name: 'Phase 6: Advanced MLOps + Cloud Mastery',
+      months: 'Month 12–15',
+      goals: [
+        'Use AWS SageMaker / GCP Vertex AI / Azure ML',
+        'Infrastructure as Code (Terraform)',
+        'Security & IAM',
+        'Certifications (AWS, GCP, Azure)'
+      ]
+    }
+  ];
+
+  const [completed, setCompleted] = useState({});
+
+  const toggleGoal = (phaseName, goal) => {
+    setCompleted(prev => {
+      const updated = { ...prev };
+      const key = `${phaseName}-${goal}`;
+      updated[key] = !updated[key];
+      return updated;
+    });
+  };
+
+  const totalGoals = phases.reduce((sum, p) => sum + p.goals.length, 0);
+  const completedGoals = Object.values(completed).filter(Boolean).length;
+  const progress = (completedGoals / totalGoals) * 100;
+
+  return (
+    <div className="max-w-4xl mx-auto p-6 space-y-6">
+      <motion.h1 className="text-3xl font-bold text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>🧭 MLOps Roadmap Tracker</motion.h1>
+      <Progress value={progress} className="h-4" />
+      <p className="text-center text-sm text-gray-600">Overall Progress: {Math.round(progress)}%</p>
+
+      {phases.map((phase, i) => (
+        <motion.div key={phase.name} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
+          <Card className="p-4 shadow-md">
+            <CardContent>
+              <h2 className="text-xl font-semibold text-blue-700">{phase.name}</h2>
+              <p className="text-sm text-gray-500 mb-2">{phase.months}</p>
+              <ul className="space-y-2">
+                {phase.goals.map(goal => (
+                  <li key={goal} className="flex items-center space-x-2">
+                    <Checkbox checked={completed[`${phase.name}-${goal}`] || false} onCheckedChange={() => toggleGoal(phase.name, goal)} />
+                    <span className={completed[`${phase.name}-${goal}`] ? 'line-through text-gray-500' : ''}>{goal}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
